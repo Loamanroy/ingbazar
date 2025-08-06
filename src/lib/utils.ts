@@ -6,6 +6,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(price: number, currency: string = 'RUB'): string {
+  if (currency === '₽') {
+    return new Intl.NumberFormat('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+    }).format(price)
+  }
+  
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: currency,
