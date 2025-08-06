@@ -16,6 +16,12 @@ import {
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid'
 
+export async function generateStaticParams() {
+  return Array.from({ length: 22 }, (_, i) => ({
+    id: (i + 1).toString(),
+  }))
+}
+
 interface ListingDetail {
   id: string
   title: string
